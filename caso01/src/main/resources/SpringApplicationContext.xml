@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- BASE DE DATOS -->
+
+    <bean name = "MYSQL" class="pe.isil.basedatos.Mysql" />
+    <bean name = "ORACLE" class="pe.isil.basedatos.Oracle" />
+    <bean name = "POSTGRES" class="pe.isil.basedatos.Postgres" />
+
+    <bean name = "NOTAS" class="pe.isil.estudiantes.Notas" >
+
+        <!-- inyeccion de dependencia por constructor-->
+        <constructor-arg name = "basedatos" ref="POSTGRES"/>
+
+
+    </bean>
+
+</beans>
